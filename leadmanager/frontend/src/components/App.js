@@ -1,20 +1,54 @@
-import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import './App.css';
+import ParentFetcher from './rs3/Rs3ParentFetcher';
+import ParentFetcherOsrs from './osrs/OsrsParentFetcher';
+import Home from './home.js';
+import Rs3Home from './rs3/Rs3Home.js';
+import OsrsHome from './osrs/OsrsHome.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+export default function App() {
+	return (
+		<React.Fragment>
+			<Router>
+				<div className="App">
+					<link
+						rel="stylesheet"
+						href="https://bootswatch.com/4/darkly/bootstrap.min.css"
+					/>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
 
-import Header from './layout/Header';
-import Dashboard from './leads/Dashboard';
+					<Route exact path="/rs3/:id" component={ParentFetcher} />
+					<Route exact path="/osrs/:id" component={ParentFetcherOsrs} />
 
-class App extends Component {
-	render() {
-		return (
-			<Fragment>
-				<Header />
-				<div className="container">
-					<Dashboard />
+					<Route
+						exact
+						path="/"
+						render={props => (
+							<React.Fragment>
+								<Home />
+							</React.Fragment>
+						)}
+					/>
+					<Route
+						exact
+						path="/osrs"
+						render={props => (
+							<React.Fragment>
+								<OsrsHome />
+							</React.Fragment>
+						)}
+					/>
+					<Route
+						exact
+						path="/rs3"
+						render={props => (
+							<React.Fragment>
+								<Rs3Home />
+							</React.Fragment>
+						)}
+					/>
 				</div>
-			</Fragment>
-		);
-	}
+			</Router>
+		</React.Fragment>
+	);
 }
-
-ReactDOM.render(<App />, document.getElementById('app'));
