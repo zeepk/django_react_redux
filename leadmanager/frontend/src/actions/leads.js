@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { createMessage } from './messages';
+import { createMessage, returnErrors } from './messages';
 
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD, GET_ERRORS } from './types';
+import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from './types';
 
 //had to add these lines to get DELETE_LEAD to not give a 403 error
 //courtesy of https://stackoverflow.com/a/46195212
@@ -17,7 +17,9 @@ export const getLeads = () => dispatch => {
 				payload: res.data
 			});
 		})
-		.catch(err => console.log(err));
+		.catch(err =>
+			dispatch(returnErrors(err.response.data, err.response.status))
+		);
 };
 
 // DELETE LEAD
@@ -46,14 +48,7 @@ export const addLead = lead => dispatch => {
 				payload: res.data
 			});
 		})
-		.catch(err => {
-			const errors = {
-				msg: err.response.data,
-				status: err.response.status
-			};
-			dispatch({
-				type: GET_ERRORS,
-				payload: errors
-			});
-		});
+		.catch(err =>
+			dispatch(returnErrors(err.response.data, err.response.status))
+		);
 };
