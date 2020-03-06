@@ -1,1 +1,1 @@
-web: gunicorn lead_manager:leadmanager
+web: gunicorn leadmanager
