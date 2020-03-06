@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-project_home = u'/home/leadmanager/leadmanager'
+project_home = u'/leadmanager/leadmanager'
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'leadmanager.settings')
 
