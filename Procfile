@@ -1,1 +1,1 @@
-web: gunicorn lead_manager.wsgi
+web: gunicorn lead_manager.wsgi:leadmanager --log-file -
