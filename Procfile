@@ -1,1 +1,1 @@
-web: gunicorn leadmanager
+web: gunicorn lead_manager.wsgi
