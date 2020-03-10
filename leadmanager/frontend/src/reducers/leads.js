@@ -1,4 +1,9 @@
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from '../actions/types.js';
+import {
+	GET_LEADS,
+	DELETE_LEAD,
+	ADD_LEAD,
+	LOGOUT_SUCCESS
+} from '../actions/types.js';
 
 const initialState = {
 	someText: 'sample text from lead reducer',
@@ -22,6 +27,12 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				leads: [...state.leads, action.payload]
+			};
+		case LOGOUT_SUCCESS:
+			return {
+				...state,
+
+				leads: []
 			};
 		default:
 			return state;
