@@ -1,32 +1,61 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getLeads, deleteLead } from '../../actions/leads';
 
 export class Leads extends Component {
-  render() {
-    console.log("running...");
-    fetch("http://localhost:8000/api/users.json")
-      .then(function(response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+	static propTypes = {
+		leads: PropTypes.array.isRequired,
+		getLeads: PropTypes.func.isRequired,
+		deleteLead: PropTypes.func.isRequired
+	};
 
-        // Examine the text in the response
-        response.json().then(function(data) {
-          console.log(data);
-        });
-      })
-      .catch(function(err) {
-        console.log("Fetch Error :-S", err);
-      });
-    return (
-      <div>
-        <h1>Leads List</h1>
-        <h1>Leads List</h1>
-      </div>
-    );
-  }
+	componentDidMount() {
+		this.props.getLeads();
+	}
+
+	render() {
+		return (
+			<div>
+				<Fragment>
+					<h2>Leads</h2>
+					<table className="table table-striped">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Message</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.props.leads.map(lead => (
+								<tr key={lead.id}>
+									<td>{lead.id}</td>
+									<td>{lead.name}</td>
+									<td>{lead.email}</td>
+									<td>{lead.message}</td>
+									<td>
+										<button
+											onClick={this.props.deleteLead.bind(this, lead.id)}
+											className="btn btn-danger btn-sm"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</Fragment>
+			</div>
+		);
+	}
 }
 
-export default Leads;
+const mapStateToProps = state => ({
+	leads: state.leads.leads
+});
+
+export default connect(mapStateToProps, { getLeads, deleteLead })(Leads);

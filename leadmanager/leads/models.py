@@ -1,44 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Lead(models.Model):
     name = models.CharField(max_length=100)
     message = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=100, unique=True)
+    owner = models.ForeignKey(
+        User, related_name="leads", on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=15)
-    last_updated = models.DateTimeField()
-
-class Entry(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_date = models.DateTimeField(auto_now_add=True)
-    attack = models.IntegerField()
-    strength = models.IntegerField()
-    defence = models.IntegerField()
-    ranged = models.IntegerField()
-    prayer = models.IntegerField()
-    magic = models.IntegerField()
-    constitution = models.IntegerField()
-    crafting = models.IntegerField()
-    mining = models.IntegerField()
-    smithing = models.IntegerField()
-    fishing = models.IntegerField()
-    cooking = models.IntegerField()
-    firemaking = models.IntegerField()
-    woodcutting = models.IntegerField()
-    runecrafting = models.IntegerField()
-    dungeoneering = models.IntegerField()
-    fletching = models.IntegerField()
-    agility = models.IntegerField()
-    herblore = models.IntegerField()
-    thieving = models.IntegerField()
-    slayer = models.IntegerField()
-    farming = models.IntegerField()
-    construction = models.IntegerField()
-    hunter = models.IntegerField()
-    summoning = models.IntegerField()
-    divination = models.IntegerField()
-    invention = models.IntegerField()

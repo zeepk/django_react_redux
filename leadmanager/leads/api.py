@@ -4,22 +4,15 @@ from .serializers import (LeadSerializer, UserSerializer, EntrySerializer)
 
 
 class LeadViewSet(viewsets.ModelViewSet):
-    queryset = Lead.objects.all()
+
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
+
     serializer_class = LeadSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = UserSerializer
+    def get_queryset(self):
+        return self.request.user.leads.all()
 
-class EntryViewSet(viewsets.ModelViewSet):
-    queryset = Entry.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = EntrySerializer
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
