@@ -1,6 +1,6 @@
-from leads.models import (Lead, User, Entry)
+from leads.models import Lead
 from rest_framework import viewsets, permissions
-from .serializers import (LeadSerializer, UserSerializer, EntrySerializer)
+from .serializers import LeadSerializer
 
 
 class LeadViewSet(viewsets.ModelViewSet):
