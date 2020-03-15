@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "webpack --mode development --watch ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js",
 		"build": "webpack --mode production ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js",
-		"heroku-prebuild": "NODE_ENV=production cd frontend/ && npm run dev && cd .."
+		"heroku-prebuild": "NODE_ENV=production cd leadmanagerproject/frontend/ && npm run dev && cd .."
 	},
 	"keywords": [],
 	"author": "",
