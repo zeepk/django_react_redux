@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
     'leadmanagerproject.leads',
-    'leadmanagerproject.leadmanager',
     'rest_framework',
     'leadmanagerproject.frontend',
     'knox',
