@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'leadmanagerproject.leads',
     'rest_framework',
-    # 'leadmanagerproject.frontend',
+    'leadmanagerproject.frontend',
     'knox',
     'leadmanagerproject.accounts'
 ]
