@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
-    'leadmanagerproject.leads',
+    'leads',
     'rest_framework',
-    'leadmanagerproject.frontend',
+    'frontend',
     'knox',
-    'leadmanagerproject.accounts'
+    'accounts'
 ]
 
 REST_FRAMEWORK = {
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'leadmanagerproject.leadmanager.urls'
+ROOT_URLCONF = 'leadmanager.urls'
 
 TEMPLATES = [
     {
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'leadmanagerproject.leadmanager.wsgi.application'
+WSGI_APPLICATION = 'leadmanager.wsgi.application'
 
 
 # Database

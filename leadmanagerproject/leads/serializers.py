@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from leadmanagerproject.leads.models import Lead
+from leads.models import Lead
 
 
 class LeadSerializer(serializers.ModelSerializer):
