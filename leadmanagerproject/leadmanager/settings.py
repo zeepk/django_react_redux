@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'leadmanagerproject.leads',
     'rest_framework',
-    'frontend',
+    'leadmanagerproject.frontend',
     'knox',
     'leadmanagerproject.accounts'
 ]
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'leadmanager.wsgi.application'
+WSGI_APPLICATION = 'leadmanagerproject.leadmanager.wsgi.application'
 
 
 # Database
