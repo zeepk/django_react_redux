@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
-    'leads',
-    'leadmanager',
+    'leadmanagerproject.leads',
+    'leadmanagerproject.leadmanager',
     'rest_framework',
-    'frontend',
+    'leadmanagerproject.frontend',
     'knox',
-    'accounts'
+    'leadmanagerproject.accounts'
 ]
 
 REST_FRAMEWORK = {
