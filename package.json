@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "webpack --mode development --watch ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js",
 		"build": "webpack --mode production ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js",
-		"heroku-prebuild": "webpack --mode production cd frontend/ && npm run dev && cd .."
+		"heroku-prebuild": "NODE_ENV=production cd frontend/ && npm run dev && cd .."
 	},
 	"keywords": [],
 	"author": "",
@@ -33,5 +33,6 @@
 		"redux": "^4.0.5",
 		"redux-devtools-extension": "^2.13.8",
 		"redux-thunk": "^2.3.0"
-	}
+	},
+	"proxy": "http://localhost:8000"
 }
