@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'leadmanager.urls'
+ROOT_URLCONF = 'leadmanagerproject.leadmanager.urls'
 
 TEMPLATES = [
     {
