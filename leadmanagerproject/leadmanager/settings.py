@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
-    'leadmanager',
     'leadmanagerproject.leads',
     'leadmanagerproject.leadmanager',
     'rest_framework',
