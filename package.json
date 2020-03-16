@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "webpack --mode development --watch ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js",
 		"build": "webpack --mode production ./leadmanagerproject/frontend/src/index.js --output ./leadmanagerproject/frontend/static/frontend/main.js"
-		
 	},
 	"keywords": [],
 	"author": "",
